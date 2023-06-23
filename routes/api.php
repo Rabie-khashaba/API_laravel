@@ -43,7 +43,8 @@ Route::group(['middleware' => ['api','checkPassword' , 'changeLanguage']] , func
         // user
         Route::group(['prefix'=>'user' , 'middleware'=>'auth.guard:user_api'],function (){
             Route::post('profile',function (){
-                return 'Only authenticated user can reach me';
+                //return 'Only authenticated user can reach me';
+                return \Auth::user(); // authenticated user data
             });
         });
 
